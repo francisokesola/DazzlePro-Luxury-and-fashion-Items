@@ -31,7 +31,7 @@ export default function CartSidebar() {
                 <Image src={item.image} alt={item.name} width={70} height={70} className="cart-item-img" />
                 <div>
                   <div className="cart-item-name">{item.name}</div>
-                  <div className="cart-item-price">${(item.price * item.quantity).toLocaleString()}</div>
+                  <div className="cart-item-price">₦{(item.price * item.quantity).toLocaleString()}</div>
                   <div className="cart-item-qty">
                     <button className="qty-btn" onClick={() => updateQty(item.id, -1)}>−</button>
                     <span className="qty-val">{item.quantity}</span>
@@ -48,7 +48,7 @@ export default function CartSidebar() {
           <div className="cart-footer">
             <div className="cart-total-row">
               <span className="cart-total-label">Subtotal</span>
-              <span className="cart-total-price">${total.toLocaleString()}</span>
+              <span className="cart-total-price">₦{total.toLocaleString()}</span>
             </div>
             <Link
               href="/checkout"

@@ -16,9 +16,7 @@ export default function CheckoutPage() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const shipping = total >= 500 ? 0 : 35;
-  const tax = Math.round(total * 0.08);
-  const grandTotal = total + shipping + tax;
+  const grandTotal = total;
   const invoiceNum = `DZP-${Date.now().toString().slice(-8)}`;
   const date = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
 
@@ -28,12 +26,9 @@ export default function CheckoutPage() {
     `📅 Date: ${date}`,
     ``,
     `*Items:*`,
-    ...items.map(i => `  • ${i.name} (x${i.quantity}) — $${(i.price * i.quantity).toLocaleString()}`),
+    ...items.map(i => `  • ${i.name} (x${i.quantity}) — ₦${(i.price * i.quantity).toLocaleString()}`),
     ``,
-    `Subtotal: $${total.toLocaleString()}`,
-    `Shipping: ${shipping === 0 ? 'Free' : '$' + shipping}`,
-    `Tax (8%): $${tax.toLocaleString()}`,
-    `*Total: $${grandTotal.toLocaleString()}*`,
+    `*Total: ₦${grandTotal.toLocaleString()}*`,
   ].join('\n');
 
   const captureCanvas = async () => {
@@ -160,48 +155,35 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                {/* Items Table */}
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '1.5rem' }}>
-                  <thead>
-                    <tr style={{ background: '#0a0a0a' }}>
-                      <th style={{ padding: '0.6rem 1rem', textAlign: 'left', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600 }}>Item</th>
-                      <th style={{ padding: '0.6rem 1rem', textAlign: 'left', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600 }}>Category</th>
-                      <th style={{ padding: '0.6rem 1rem', textAlign: 'center', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600 }}>Qty</th>
-                      <th style={{ padding: '0.6rem 1rem', textAlign: 'right', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600 }}>Unit</th>
-                      <th style={{ padding: '0.6rem 1rem', textAlign: 'right', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600 }}>Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {items.map((item, idx) => (
-                      <tr key={item.id} style={{ background: idx % 2 === 0 ? '#fff' : '#f5f0e8' }}>
-                        <td style={{ padding: '0.9rem 1rem', fontSize: '0.85rem', borderBottom: '1px solid #e8e0d0', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                          <Image src={item.image} alt={item.name} width={40} height={40} style={{ objectFit: 'cover', flexShrink: 0 }} />
-                          <span style={{ fontWeight: 500 }}>{item.name}</span>
-                        </td>
-                        <td style={{ padding: '0.9rem 1rem', fontSize: '0.8rem', color: '#777', borderBottom: '1px solid #e8e0d0' }}>{item.category}</td>
-                        <td style={{ padding: '0.9rem 1rem', fontSize: '0.85rem', textAlign: 'center', borderBottom: '1px solid #e8e0d0' }}>{item.quantity}</td>
-                        <td style={{ padding: '0.9rem 1rem', fontSize: '0.85rem', textAlign: 'right', borderBottom: '1px solid #e8e0d0' }}>${item.price.toLocaleString()}</td>
-                        <td style={{ padding: '0.9rem 1rem', fontSize: '0.85rem', textAlign: 'right', fontWeight: 600, borderBottom: '1px solid #e8e0d0' }}>${(item.price * item.quantity).toLocaleString()}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                {/* Responsive Items List */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <div style={{ display: 'flex', borderBottom: '2px solid #c9a84c', paddingBottom: '0.6rem', marginBottom: '0.6rem', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c9a84c', fontWeight: 600 }}>
+                    <div style={{ flex: 1 }}>Item</div>
+                    <div style={{ width: '90px', textAlign: 'right' }}>Total</div>
+                  </div>
+                  {items.map((item, idx) => (
+                    <div key={item.id} style={{ display: 'flex', alignItems: 'center', padding: '0.8rem', borderBottom: '1px solid #e8e0d0', gap: '1rem', background: idx % 2 === 0 ? '#fff' : '#f5f0e8' }}>
+                      <Image src={item.image} alt={item.name} width={45} height={45} style={{ objectFit: 'cover', flexShrink: 0, borderRadius: '4px' }} />
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontWeight: 500, fontSize: '0.85rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: '#0a0a0a' }}>
+                          {item.name}
+                        </div>
+                        <div style={{ fontSize: '0.72rem', color: '#777', marginTop: '0.2rem' }}>
+                          {item.category} • ₦{item.price.toLocaleString()} × {item.quantity}
+                        </div>
+                      </div>
+                      <div style={{ width: '90px', textAlign: 'right', fontWeight: 600, fontSize: '0.85rem', color: '#0a0a0a' }}>
+                        ₦{(item.price * item.quantity).toLocaleString()}
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
                 {/* Totals */}
                 <div style={{ maxWidth: '240px', marginLeft: 'auto' }}>
-                  {[
-                    { label: 'Subtotal', value: `$${total.toLocaleString()}` },
-                    { label: 'Shipping', value: shipping === 0 ? '✓ Free' : `$${shipping}` },
-                    { label: 'Tax (8%)', value: `$${tax.toLocaleString()}` },
-                  ].map(row => (
-                    <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', color: '#555', padding: '0.35rem 0' }}>
-                      <span>{row.label}</span>
-                      <span>{row.value}</span>
-                    </div>
-                  ))}
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.05rem', fontWeight: 700, borderTop: '2px solid #c9a84c', paddingTop: '0.7rem', marginTop: '0.3rem', color: '#0a0a0a' }}>
                     <span>Grand Total</span>
-                    <span style={{ color: '#9a7a2e' }}>${grandTotal.toLocaleString()}</span>
+                    <span style={{ color: '#9a7a2e' }}>₦{grandTotal.toLocaleString()}</span>
                   </div>
                 </div>
 

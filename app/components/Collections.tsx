@@ -4,8 +4,9 @@ import Image from 'next/image';
 
 const COLLECTIONS = [
   { id: 'jewellery', tag: 'Collection', title: 'Fine Jewellery', image: '/product_jewelry.png' },
-  { id: 'clothing',  tag: 'Collection', title: 'Couture',        image: '/product_clothes.png' },
-  { id: 'accessories', tag: 'Collection', title: 'Accessories',  image: '/product_handbag.png' },
+  { id: 'clothing', tag: 'Collection', title: 'Couture', image: '/product_clothes.png' },
+  { id: 'accessories', tag: 'Collection', title: 'Accessories', image: '/product_handbag.png' },
+  { id: 'watches', tag: 'Collection', title: 'Watches', image: '/camo_gshock.JPG' },
 ];
 
 interface CollectionsProps {
@@ -27,7 +28,7 @@ export default function Collections({ onCategoryClick }: CollectionsProps) {
             className="collection-card"
             onClick={() => onCategoryClick(col.id.charAt(0).toUpperCase() + col.id.slice(1))}
           >
-            <Image src={col.image} alt={col.title} fill style={{ objectFit: 'cover' }} />
+            <Image src={col.image} alt={col.title} width={500} height={500} loading='eager' style={{ objectFit: 'cover' }} />
             <div className="collection-overlay">
               <div className="collection-tag">{col.tag}</div>
               <h3>{col.title}</h3>
