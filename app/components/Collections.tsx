@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 const COLLECTIONS = [
   { id: 'jewellery', tag: 'Collection', title: 'Fine Jewellery', image: '/product_jewelry.png' },
@@ -36,6 +37,26 @@ export default function Collections({ onCategoryClick }: CollectionsProps) {
             </div>
           </div>
         ))}
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem', width: '100%' }}>
+        <a 
+          href="http://wa.me/2348105744208" 
+          style={{ 
+            backgroundColor: '#0a0a0a', 
+            color: 'white', 
+            textDecoration: 'none', 
+            padding: '1rem 2.5rem', 
+            fontSize: '0.9rem',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            fontWeight: 500,
+            border: '1px solid var(--gold)',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          Click for Custom Styling
+        </a>
       </div>
     </section>
   );

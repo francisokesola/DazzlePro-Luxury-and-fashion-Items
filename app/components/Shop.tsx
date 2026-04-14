@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useCart, Product } from '../context/CartContext';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const PRODUCTS: Product[] = [
   { id: 1, name: 'Black Gshock', category: 'Watches', price: 2_450, oldPrice: 3_100, image: '/Black_gshock.JPG', badge: 'Bestseller', description: '18k gold, conflict-free diamonds' },
@@ -92,11 +93,18 @@ export default function Shop({ activeFilter, onFilterChange }: ShopProps) {
                 >
                   Add
                 </button>
+
               </div>
             </div>
+
+
           </article>
+
+
         ))}
       </div>
+
+
     </section>
   );
 }

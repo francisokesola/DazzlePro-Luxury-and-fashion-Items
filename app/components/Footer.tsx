@@ -14,30 +14,23 @@ export default function Footer() {
             <li><a href="#collections">Fine Jewellery</a></li>
             <li><a href="#collections">Couture</a></li>
             <li><a href="#collections">Accessories</a></li>
-            <li><a href="#shop">New Arrivals</a></li>
+            <li><a href="#collections">Watches</a></li>
+
           </ul>
         </div>
         <div className="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="#">Personal Styling</a></li>
-            <li><a href="#">Gift Wrapping</a></li>
-            <li><a href="#">Engravings</a></li>
-            <li><a href="#">Repairs</a></li>
+            <li><a href="http://wa.me/2348105744208">Personal Styling</a></li>
+            <li><a href="http://wa.me/2348105744208">Gift Wrapping</a></li>
+            <li><a href="http://wa.me/2348105744208">Engravings</a></li>
+            <li><a href="http://wa.me/2348105744208">Repairs</a></li>
           </ul>
         </div>
-        <div className="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Sustainability</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
+
       </div>
       <div className="footer-bottom">
-        <span>© 2026 AURÉLIE. All rights reserved.</span>
+        <span>© 2026 Dazzle. All rights reserved.</span>
         <span>Privacy Policy · Terms of Service · Cookies</span>
       </div>
     </footer>
