@@ -224,7 +224,7 @@ export default function CheckoutPage() {
                   </div>
                 )}
 
-                <Link href="/" className="btn-secondary" style={{ justifyContent: 'center', textAlign: 'center' }}>
+                <Link href="/shop" className="btn-secondary" style={{ justifyContent: 'center', textAlign: 'center' }}>
                   ← Continue Shopping
                 </Link>
               </div>

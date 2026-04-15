@@ -13,20 +13,24 @@ const PRODUCTS: Product[] = [
   { id: 5, name: 'Rayban Glasses', category: 'Accessories', price: 9_000, image: '/rayban_glasses.JPG', description: ' A fashionable dark Ryayban Glasses' },
   { id: 6, name: 'Emerald Gold set', category: 'Jewellery', price: 15_000, image: '/emerald_gold_set.JPG', description: 'A gold set with beautiful pink emerald stones' },
   { id: 7, name: 'Cartier Watch', category: 'Watches', price: 27_000, image: '/cartier_watch.JPG', description: 'Gold and Silver Cartier classic watch ' },
-  { id: 8, name: 'Gold Bracelets', category: 'Jewellery', price: 890, image: '/gold_bracelets.JPG', description: 'A beautiful set of gold bracelets' },
-  { id: 9, name: 'Heart-shaped jewelly Set', category: 'Jewellery', price: 10_000, image: '/heart-set.JPG', description: ' A heart shape jewelries set' },
+  { id: 8, name: 'Gold Bracelets', category: 'Jewellery', price: 30_000, image: '/gold_bracelets.JPG', description: 'A beautiful set of gold bracelets' },
+  { id: 9, name: 'Heart-shaped jewelly Set', category: 'Jewellery', price: 6_000, image: '/heart-set.JPG', description: ' A heart shape jewelries set' },
   { id: 10, name: 'Steel Cross Necklace', category: 'Jewellery', price: 10_000, image: '/steel_cross_necklace.JPG', description: ' A fashionable steel cross necklace' },
-  { id: 11, name: 'MonoChrome Tribal Print Daviva', category: 'Clothing', price: 4_000, image: '/monochrome_tribal_print.jpeg', description: '6 yards of a black and white tribal design daviva material' },
-  { id: 12, name: 'Emerald Mosaic Classic Daviva', category: 'Clothing', price: 4_000, image: '/emerald_mosaic_classic_Daviva.jpeg', description: '6 yards of an emerald mosaic classic daviva material' },
-  { id: 13, name: 'Pink Zebra Daviva', category: 'Clothing', price: 4_000, image: '/Pink_Zebra_Luxe.jpeg', description: '6 yards of a pink zebra design daviva materia' },
+  { id: 11, name: 'MonoChrome Tribal Print Daviva', category: 'Fabrics', price: 4_000, image: '/monochrome_tribal_print.jpeg', description: '6 yards of a black and white tribal design daviva material' },
+  { id: 12, name: 'Emerald Mosaic Classic Daviva', category: 'Fabrics', price: 4_000, image: '/emerald_mosaic_classic_Daviva.jpeg', description: '6 yards of an emerald mosaic classic daviva material' },
+  { id: 13, name: 'Pink Zebra Daviva', category: 'Fabrics', price: 4_000, image: '/Pink_Zebra_Luxe.jpeg', description: '6 yards of a pink zebra design daviva materia' },
   { id: 14, name: 'Black Classy Gown', category: 'Custom Styling', price: 20_000, image: '/blackclassy_gown .jpeg', description: ' Custom Styled classy black gown for dates' },
-  { id: 15, name: ' White Classy Gown', category: 'Custom Styling', price: 45_000, image: '/white_birthday_gown.jpeg', description: ' Custom Styled classy white gown' }
+  { id: 15, name: ' White Classy Gown', category: 'Custom Styling', price: 45_000, image: '/white_birthday_gown.jpeg', description: ' Custom Styled classy white gown' },
+  { id: 16, name: ' Transparent Frame Louis Vuitton', category: 'Accessories', price: 10_000, image: '/Transparent_lv.jpeg', description: ' Transparent Louis Vuitton' },
+  { id: 17, name: ' Black Frame Louis Vuitton', category: 'Accessories', price: 10_000, image: '/black-lv.jpeg', description: ' Black Frame Louis Vuitton' },
+  { id: 18, name: ' Black and Green Rayban', category: 'Accessories', price: 10_000, image: '/black-green-rayban.jpeg', description: ' Black and green glasses Rayban' },
+  { id: 19, name: ' Porsche Rayban', category: 'Accessories', price: 10_000, image: '/porsche-rayban.jpeg', description: ' Porsche Rayban' },
 
 
 
 ];
 
-const FILTERS = ['All', 'Jewellery', 'Clothing', 'Accessories', 'Watches', 'Custom Styling'];
+const FILTERS = ['Jewellery', 'Fabrics', 'Accessories', 'Watches', 'Custom Styling'];
 
 interface ShopProps {
   activeFilter: string;
@@ -124,8 +128,20 @@ export default function Shop({ activeFilter, onFilterChange, limit, showViewAll 
           >
             Explore Entire Shop →
           </Link>
+
+
         </div>
       )}
+
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+        <Link
+          href="http://wa.me/2348105744208"
+          className="btn-primary"
+          style={{ padding: '1rem 3rem', fontSize: '1rem', letterSpacing: '0.1em' }}
+        >
+          I want to place a custom order
+        </Link>
+      </div>
     </section>
   );
 }
