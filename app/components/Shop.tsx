@@ -138,7 +138,7 @@ export default function Shop({ activeFilter, onFilterChange, limit, showViewAll 
         <Link
           href="http://wa.me/2348105744208"
           className="btn-primary"
-          style={{ padding: '1rem 3rem', fontSize: '1rem', letterSpacing: '0.1em' }}
+          style={{ padding: '1rem 3rem', fontSize: '0.7rem', letterSpacing: '0.1em', textAlign: 'center' }}
         >
           I want to place a custom order
         </Link>
