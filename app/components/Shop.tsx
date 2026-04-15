@@ -25,6 +25,7 @@ const PRODUCTS: Product[] = [
   { id: 17, name: ' Black Frame Louis Vuitton', category: 'Accessories', price: 10_000, image: '/black-lv.jpeg', description: ' Black Frame Louis Vuitton' },
   { id: 18, name: ' Black and Green Rayban', category: 'Accessories', price: 10_000, image: '/black-green-rayban.jpeg', description: ' Black and green glasses Rayban' },
   { id: 19, name: ' Porsche Rayban', category: 'Accessories', price: 10_000, image: '/porsche-rayban.jpeg', description: ' Porsche Rayban' },
+  { id: 20, name: ' Gold Half-Heart Ear-rings', category: 'Jewellery', price: 2_500, image: '/half_heart.jpeg', description: ' A part of half heart ear-rings with a silver pearl' },
 
 
 
