@@ -195,6 +195,7 @@ export default function CheckoutPage() {
 
               {/* ── Action Buttons ── */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
+                <p style={{ color: 'red', fontSize: '0.8rem', textAlign: 'center' }}>*Send a message first on whatsapp to confirm your order before clicking on the button below <a href="http://wa.me/2348105744208"> Here</a></p>
                 <button
                   id="send-whatsapp-btn"
                   onClick={handleSendWhatsApp}
