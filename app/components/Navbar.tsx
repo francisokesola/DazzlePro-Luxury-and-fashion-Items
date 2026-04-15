@@ -19,8 +19,7 @@ export default function Navbar() {
       <Link href="/" className="nav-logo">DazzlePro</Link>
       <ul className="nav-links">
         <li><a href="#collections">Collections</a></li>
-        <li><a href="#jewellery">Jewellery</a></li>
-        <li><a href="#clothing">Clothing</a></li>
+        <li><a href="#shop">Shop</a></li>
         <li><a href="#about">About</a></li>
       </ul>
       <button className="nav-cart-btn" id="open-cart-btn" onClick={openCart} aria-label="Open cart">

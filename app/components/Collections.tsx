@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const COLLECTIONS = [
   { id: 'jewellery', tag: 'Collection', title: 'Fine Jewellery', image: '/product_jewelry.png' },
-  { id: 'clothing', tag: 'Collection', title: 'Couture', image: '/product_clothes.png' },
-  { id: 'accessories', tag: 'Collection', title: 'Accessories', image: '/product_handbag.png' },
+  { id: 'clothing', tag: 'Collection', title: 'Clothing Materials', image: '/emerald_mosaic_classic_Daviva.jpeg' },
+  { id: 'accessories', tag: 'Collection', title: 'Accessories', image: '/rayban_glasses.JPG' },
   { id: 'watches', tag: 'Collection', title: 'Watches', image: '/camo_gshock.JPG' },
 ];
 
@@ -40,13 +40,13 @@ export default function Collections({ onCategoryClick }: CollectionsProps) {
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem', width: '100%' }}>
-        <a 
-          href="http://wa.me/2348105744208" 
-          style={{ 
-            backgroundColor: '#0a0a0a', 
-            color: 'white', 
-            textDecoration: 'none', 
-            padding: '1rem 2.5rem', 
+        <a
+          href="http://wa.me/2348105744208"
+          style={{
+            backgroundColor: '#0a0a0a',
+            color: 'white',
+            textDecoration: 'none',
+            padding: '1rem 2.5rem',
             fontSize: '0.9rem',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',

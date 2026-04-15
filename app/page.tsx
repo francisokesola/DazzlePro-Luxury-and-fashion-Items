@@ -21,7 +21,7 @@ export default function HomePage() {
       <Hero />
       <Marquee />
       <Collections onCategoryClick={setActiveFilter} />
-      <Shop activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+      <Shop activeFilter={activeFilter} onFilterChange={setActiveFilter} limit={6} showViewAll={true} />
       <Banner />
       <Footer />
     </>
