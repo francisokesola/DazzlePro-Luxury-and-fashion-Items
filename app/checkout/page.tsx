@@ -56,13 +56,21 @@ export default function CheckoutPage() {
 
       // 1. Mobile Share Sheet (passes image to WhatsApp directly)
       if (typeof navigator.share === 'function' && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: `DazzlePro Order ${invoiceNum}`,
-          text: whatsappText,
-        });
-        setSent(true);
-        return;
+        try {
+          await navigator.share({
+            files: [file],
+            title: `DazzlePro Order ${invoiceNum}`,
+            text: whatsappText,
+          });
+          setSent(true);
+          return;
+        } catch (shareErr: any) {
+          if (shareErr.name === 'AbortError') {
+            return; // User cancelled the share sheet
+          }
+          console.log('Share API failed, falling back...', shareErr);
+          // fall through
+        }
       }
 
       // 2. Desktop Clipboard (copies image to paste in WhatsApp)
@@ -88,9 +96,9 @@ export default function CheckoutPage() {
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`, '_blank');
       setSent(true);
 
-    } catch (err: unknown) {
+    } catch (err: any) {
       console.error(err);
-      alert('Could not capture invoice. Please try again.');
+      alert(`Capture Error: ${err.message || 'Could not process invoice. Please try again.'}`);
     } finally {
       setSending(false);
     }
