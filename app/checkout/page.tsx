@@ -163,7 +163,7 @@ export default function CheckoutPage() {
                   </div>
                   {items.map((item, idx) => (
                     <div key={item.id} style={{ display: 'flex', alignItems: 'center', padding: '0.8rem', borderBottom: '1px solid #e8e0d0', gap: '1rem', background: idx % 2 === 0 ? '#fff' : '#f5f0e8' }}>
-                      <Image src={item.image} alt={item.name} width={45} height={45} unoptimized style={{ objectFit: 'cover', flexShrink: 0, borderRadius: '4px' }} />
+                      <img src={item.image} alt={item.name} width="45" height="45" style={{ objectFit: 'cover', flexShrink: 0, borderRadius: '4px' }} />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontWeight: 500, fontSize: '0.85rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: '#0a0a0a' }}>
                           {item.name}
